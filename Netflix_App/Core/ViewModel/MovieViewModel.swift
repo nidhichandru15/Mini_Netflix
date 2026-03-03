@@ -102,7 +102,7 @@ class MovieViewModel: ObservableObject {
             let decoded = try JSONDecoder().decode(MovieResponse.self, from: data)
             movies = decoded.results
         } catch {
-            print("Error fetching movies:", error)
+            print("Api Error", error)
         }
     }
     
