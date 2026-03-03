@@ -92,19 +92,7 @@ class MovieViewModel: ObservableObject {
         }
     }
     
-    func fetchMovies() async {
-        guard let url = URL(string: selectedCategory.urlString) else {
-            return
-        }
-        
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
-            let decoded = try JSONDecoder().decode(MovieResponse.self, from: data)
-            movies = decoded.results
-        } catch {
-            print("Error fetching movies:", error)
-        }
-    }
+    
     
     
     func toggleFavorite(for movie: Movie) {
@@ -120,3 +108,5 @@ class MovieViewModel: ObservableObject {
         favoriteMovieIDs.contains(movie.id)
     }
 }
+
+
