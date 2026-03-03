@@ -1,17 +1,19 @@
 //
-//  Netflix_AppApp.swift
-//  Netflix_App
+//  Mini_NetflixApp.swift
+//  Mini_Netflix
 //
-//  Created by Zopping on 03/03/26.
+//  Created by Zopping on 26/02/26.
 //
 
 import SwiftUI
 
 @main
-struct Netflix_AppApp: App {
+struct Mini_NetflixApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
     }
 }
+
+
