@@ -73,7 +73,7 @@ import Combine
 import Foundation
 
 class MovieViewModel: ObservableObject {
-    
+    private let client = HTTPClient()
     @Published var movies: [Movie] = []
     @Published var searchText: String = ""
     
@@ -92,7 +92,14 @@ class MovieViewModel: ObservableObject {
         }
     }
     
-    
+    func fetchMovies() async {
+        do {
+            let movies = try await client.fetchMovies(category: selectedCategory)
+            self.movies = movies
+        } catch {
+            print("Error fetching movies:", error)
+        }
+    }
     
     
     func toggleFavorite(for movie: Movie) {

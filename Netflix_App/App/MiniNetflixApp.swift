@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct Mini_NetflixApp: App {
+    @StateObject private var viewModel = MovieViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(viewModel)
         }
     }
 }

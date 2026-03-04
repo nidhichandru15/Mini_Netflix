@@ -10,7 +10,7 @@ import Combine
 import Foundation
 
 struct HomeView: View {
-    
+//    @EnvironmentObject var viewModel: MovieViewModel
     @StateObject private var viewModel = MovieViewModel()
     @State private var username = "Nidhi"
     
@@ -49,9 +49,9 @@ struct HomeView: View {
                         ForEach(MovieCategory.allCases, id: \.self) { category in
                             Button {
                                 viewModel.selectedCategory = category
-                                Task {
-                                    await viewModel.fetchMovies()
-                                }
+//                                Task {
+//                                    await viewModel.fetchMovies()
+//                                }
                             } label: {
                                 Text(category.rawValue)
                                     .padding(.horizontal, 12)
@@ -73,7 +73,7 @@ struct HomeView: View {
                         ForEach(viewModel.filteredMovies) { movie in
                             NavigationLink {
                                 MovieDetailView(movie: movie)
-                                    .environmentObject(viewModel)
+                                    //.environmentObject(viewModel)
                             } label: {
                                 HStack {
                                     
