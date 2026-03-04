@@ -70,7 +70,7 @@
 
 import Foundation
 import Combine
-import Foundation
+import SwiftUI
 
 class MovieViewModel: ObservableObject {
     
@@ -91,7 +91,6 @@ class MovieViewModel: ObservableObject {
             }
         }
     }
-    
     func fetchMovies() async {
         guard let url = URL(string: selectedCategory.urlString) else {
             return
@@ -106,6 +105,7 @@ class MovieViewModel: ObservableObject {
         }
     }
     
+
     
     func toggleFavorite(for movie: Movie) {
         if favoriteMovieIDs.contains(movie.id) {
@@ -119,4 +119,12 @@ class MovieViewModel: ObservableObject {
     func isFavorite(_ movie: Movie) -> Bool {
         favoriteMovieIDs.contains(movie.id)
     }
+   
+        
+    
+    
+    
+    
 }
+
+
