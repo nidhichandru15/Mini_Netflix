@@ -11,13 +11,12 @@ import Foundation
 
 struct HomeView: View {
     
-    @StateObject private var viewModel = MovieViewModel()
+    @EnvironmentObject var viewModel : MovieViewModel
     @State private var username = "Nidhi"
     
     var body: some View {
         NavigationStack {
-            
-            
+
             VStack(alignment: .leading) {
                 
                
@@ -38,6 +37,7 @@ struct HomeView: View {
                 
             
                 TextField("Search movies...", text: $viewModel.searchText)
+					.foregroundStyle(.white)
                     .padding()
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(10)

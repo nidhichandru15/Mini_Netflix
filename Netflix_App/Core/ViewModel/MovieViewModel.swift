@@ -70,7 +70,7 @@
 
 import Foundation
 import Combine
-import Foundation
+import SwiftUI
 
 class MovieViewModel: ObservableObject {
     
@@ -91,7 +91,6 @@ class MovieViewModel: ObservableObject {
             }
         }
     }
-    
     func fetchMovies() async {
         guard let url = URL(string: selectedCategory.urlString) else {
             return
@@ -102,10 +101,11 @@ class MovieViewModel: ObservableObject {
             let decoded = try JSONDecoder().decode(MovieResponse.self, from: data)
             movies = decoded.results
         } catch {
-            print("Error fetching movies:", error)
+            print("Api Error", error)
         }
     }
     
+
     
     func toggleFavorite(for movie: Movie) {
         if favoriteMovieIDs.contains(movie.id) {
@@ -119,4 +119,12 @@ class MovieViewModel: ObservableObject {
     func isFavorite(_ movie: Movie) -> Bool {
         favoriteMovieIDs.contains(movie.id)
     }
+   
+        
+    
+    
+    
+    
 }
+
+
